@@ -67,6 +67,25 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         this.size--;
         return removeNode.next.element;
     }
+    @Override
+    public E removeAtIndex(int index) {
+        if (index == 0) {
+            return removeFirst();
+        } else if (index == this.size - 1) {
+            return removeLast();
+        } else {
+            Node<E> current = this.head;
+            Node<E> previous = null;
+            for (int i = 0; i < index; i++) {
+                previous = current;
+                current = current.next;
+            }
+            E element = current.element;
+            previous.next = current.next;
+            this.size--;
+            return element;
+        }
+    }
 
     @Override
     public E getFirst() {
