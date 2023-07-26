@@ -10,6 +10,11 @@ public interface LinkedList<E> extends Iterable<E> {
 
     E getFirst();
     E getLast();
+
+    E getAtIndex(int index);
+
     int size();
     boolean isEmpty();
+
+    void addAtIndex(E element, int index);
 }
