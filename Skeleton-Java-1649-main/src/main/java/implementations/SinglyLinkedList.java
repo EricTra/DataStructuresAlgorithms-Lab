@@ -97,6 +97,11 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     }
 
     @Override
+    public E getAtIndex(int index) {
+        return null;
+    }
+
+    @Override
     public int size() {
         return this.size;
     }
@@ -104,6 +109,11 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     @Override
     public boolean isEmpty() {
         return this.size == 0;
+    }
+
+    @Override
+    public void addAtIndex(E element, int index) {
+
     }
 
     @Override
