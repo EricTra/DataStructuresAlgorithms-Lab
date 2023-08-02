@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrayList_Scenario/ArrayList_Scenario.iml" filepath="$PROJECT_DIR$/ArrayList_Scenario/ArrayList_Scenario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Insertion_Sort/Insertion_Sort.iml" filepath="$PROJECT_DIR$/Insertion_Sort/Insertion_Sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/Queue_Scenario/Queue_Scenario.iml" filepath="$PROJECT_DIR$/Queue_Scenario/Queue_Scenario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Quick_Sort/Quick_Sort.iml" filepath="$PROJECT_DIR$/Quick_Sort/Quick_Sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test Code.iml" filepath="$PROJECT_DIR$/Test Code.iml" />
     </modules>
   </component>
