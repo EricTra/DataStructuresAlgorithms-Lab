@@ -76,7 +76,6 @@ public class Queue<E> implements AbstractQueue<E> {
                 this.current = this.current.next;
                 return element;
             }
-
         };
     }
 }
