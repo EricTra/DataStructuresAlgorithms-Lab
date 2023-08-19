@@ -1,128 +1,61 @@
+import Searching.BinarySearch;
+import  implementations.*;
+
+import java.util.Iterator;
+import java.util.Scanner;
 public class Main {
-
-    // reference to head / first node of the Singly Linked List
-    public Node head = null;
-
-    // class Node that hold data and a reference/link
-    // to the next Node in the list
-    class Node {
-        private int data;
-        private Node next;
-
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
-
-    /*
-     * Method to add a node at the beginning of the list
-     */
-    public void addNodeAtTheBeginning(int data) {
-        System.out.println("Add a node with data " + data + " in the beginning.");
-        // Create a new node
-        Node newNode = new Node(data);
-
-        // Check if the list is empty
-        if (this.head == null) {
-            // Make the new node as head
-            this.head = newNode;
-        } else {
-            // Point the new node's next to head
-            newNode.next = this.head;
-
-            // Make the new node as head
-            this.head = newNode;
-        }
-    }
-
-    /*
-     * Method to add a node at the end of the list
-     */
-    public void addNodeAtTheEnd(int data) {
-        System.out.println("Add a node with data " + data + " at the end.");
-        // Create a new node
-        Node newNode = new Node(data);
-
-        // Check if the list is empty
-        if (this.head == null) {
-            // Make the new node as head
-            this.head = newNode;
-        } else {
-            Node cur = this.head;
-            // traverse to the end of the list
-            while (cur.next != null) {
-                cur = cur.next;
-            }
-            cur.next = newNode;
-        }
-    }
-
-
-    /*
-     * Method to add a node at the specified position in the list
-     */
-    public void add(int position, int data) {
-        System.out.println("Add a node with data " + data + " at the position " + position);
-        // Create a new node
-        Node newNode = new Node(data);
-
-        // Init the cur and prev nodes to the head
-        Node cur = this.head, prev = this.head;
-
-        if (position == 1) {
-            // Point the new node's next to head
-            newNode.next = head;
-            // Make the new node as head
-            this.head = newNode;
-            return;
-        }
-
-        // traverse to the end of the list and check positions moved
-        while (cur.next != null && --position > 0) {
-            // update the prev and cur references
-            prev = cur;
-            cur = cur.next;
-        }
-
-        // update prev to point to new node
-        prev.next = newNode;
-
-        // & new node to point to current node
-        newNode.next = cur;
-    }
-
-    public void print() {
-        if (this.head == null) {
-            System.out.println("The List is empty.");
-        } else {
-            System.out.println("The contents of the Singly Linked List are : ");
-            Node cur = this.head;
-            while (cur != null) {
-                System.out.print(cur.data + " -> ");
-                cur = cur.next;
-            }
-            System.out.println("NULL\n");
-        }
-    }
-
     public static void main(String[] args) {
-        Main list = new Main();
-        System.out.println("Created a singly linked list .....");
-        list.print();
-        list.addNodeAtTheBeginning(100);
-        list.print();
-        list.addNodeAtTheBeginning(200);
-        list.print();
-        list.addNodeAtTheEnd(900);
-        list.print();
-        list.addNodeAtTheEnd(800);
-        list.print();
-        list.add(1,150);
-        list.print();
-        list.add(4,250);
-        list.print();
-        list.add(6,250);
-        list.print();
+        Queue2<String> bufferQueue = new Queue2<>();
+        Stack2<String> messageStack = new Stack2<>();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\u001B[1m" + "-----------------------------------");
+            System.out.println("|        Welcome to the Demo       |");
+            System.out.println("|     Written by DuyTea            |");
+            System.out.println("-----------------------------------\u001B[0m");
+            System.out.println("\u001B[1m" + "1. Enqueue message to Buffer Queue");
+            System.out.println("2. Process messages to Message Stack");
+            System.out.println("3. Pop message from Message Stack and Print");
+            System.out.println("4. Exit\u001B[0m");
+
+            System.out.print("Please select an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the message to enqueue: ");
+                    String enqueueMessage = scanner.nextLine();
+                    bufferQueue.offer(enqueueMessage);
+                    System.out.println("Message enqueued to Buffer Queue.");
+                    break;
+
+                case 2:
+                    while (!bufferQueue.isEmpty()) {
+                        String dequeuedMessage = bufferQueue.poll();
+                        messageStack.push(dequeuedMessage);
+                    }
+                    System.out.println("Messages processed to Message Stack.");
+                    break;
+
+                case 3:
+                    if (!messageStack.isEmpty()) {
+                        String poppedMessage = messageStack.pop();
+                        System.out.println("Popped message from Message Stack: " + poppedMessage);
+                    } else {
+                        System.out.println("Message Stack is empty.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Exiting the program.");
+                    scanner.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        }
     }
 }
