@@ -5,16 +5,8 @@ public interface LinkedList<E> extends Iterable<E> {
     void addLast(E element);
     E removeFirst();
     E removeLast();
-
-    E removeAtIndex(int index);
-
     E getFirst();
     E getLast();
-
-    E getAtIndex(int index);
-
     int size();
     boolean isEmpty();
-
-    void addAtIndex(E element, int index);
 }
